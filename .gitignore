@@ -1,0 +1,54 @@
+# adapted from https://gist.github.com/octocat/9257657
+
+# cd77-specific exclusions, executables and other binaries
+##########################################################
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.s
+*.i
+*.o
+*.so
+*.a
+*.pyc
+a.out
+ 
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+ 
+# Logs databases, backups, debugging #
+######################################
+*.log
+*.sql
+*.sqlite
+*.bak
+*.bup
+*_bup
+*~
+*.trace
+ 
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+*.dSYM
+ehthumbs.db
+Thumbs.db
+Resources 
