@@ -40,7 +40,7 @@ cdmslib = {
     #"irix6" : "-L"+cdat_location+"/lib -lcdms -lnetcdf -L"+cdat_location+"/HDF4.0r2/lib -lmfhdf -ldf -ljpeg -lz -ldrs",
     #"sunos5" : "-L"+cdat_location+"/lib -lcdms -lmfhdf -ldf -ljpeg -lz -lnetcdf -lnsl -ldrs -lm -lsunmath",
     # "linux2" : "-L"+cdat_location+"/lib -ldrs -lcdms -lnetcdf -lmfhdf -ldf -ljpeg -lz -lmfhdf -ldf -ljpeg -lz -lm"
-    "linux2": "-L" + cdat_location + "/lib  -ldrs -l" + " -l".join(cdat_info.cdunif_libraries)
+    "linux2": "-L" + cdat_location + "/lib  -ldrs -l" + " -l".join(cdat_info.cdunif_libraries),
     "darwin": "-L" + cdat_location + "/lib  -ldrs -l" + " -l".join(cdat_info.cdunif_libraries)
 }
 latsinc = {
