@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import sys, os, string
+import sys, os
 import cdat_info
 
 # Compile a Fortran EzGet/LATS/CDMS application
@@ -25,37 +25,47 @@ Examples:
 cdat_location = sys.prefix+"/Externals"
 # Locations of libraries and include files on the various platforms
 
-ezgetlib = {"irix6" : "-L/pcmdi/ktaylor/pcmdi/util/ezget/Sgi6.2 -lezget",
-            "sunos5" : "-L/pcmdi/cirrus/ktaylor/ezget/solaris -lezget",
-            "linux2" : "-L"+cdat_location+"/lib -lezget"}
-cdmsinc = {"irix6" : "-I"+cdat_location+"/include -I"+cdat_location+"/HDF4.0r2/include",
-           "sunos5" : "-I"+cdat_location+"/include",
-           "linux2" : "-I"+cdat_location+"/include"}
-cdmslib = {"irix6" : "-L"+cdat_location+"/lib -lcdms -lnetcdf -L"+cdat_location+"/HDF4.0r2/lib -lmfhdf -ldf -ljpeg -lz -ldrs",
-           "sunos5" : "-L"+cdat_location+"/lib -lcdms -lmfhdf -ldf -ljpeg -lz -lnetcdf -lnsl -ldrs -lm -lsunmath",
+ezgetlib = {
+        #"irix6" : "-L/pcmdi/ktaylor/pcmdi/util/ezget/Sgi6.2 -lezget",
+            #"sunos5" : "-L/pcmdi/cirrus/ktaylor/ezget/solaris -lezget",
+            "linux2" : "-L"+cdat_location+"/lib -lezget",
+            "darwin" : "-L"+cdat_location+"/lib -lezget"}
+cdmsinc = {
+        #"irix6" : "-I"+cdat_location+"/include -I"+cdat_location+"/HDF4.0r2/include",
+           #"sunos5" : "-I"+cdat_location+"/include",
+           "linux2" : "-I"+cdat_location+"/include",
+           "darwin" : "-I"+cdat_location+"/include"}
+cdmslib = {
+        #"irix6" : "-L"+cdat_location+"/lib -lcdms -lnetcdf -L"+cdat_location+"/HDF4.0r2/lib -lmfhdf -ldf -ljpeg -lz -ldrs",
+           #"sunos5" : "-L"+cdat_location+"/lib -lcdms -lmfhdf -ldf -ljpeg -lz -lnetcdf -lnsl -ldrs -lm -lsunmath",
            # "linux2" : "-L"+cdat_location+"/lib -ldrs -lcdms -lnetcdf -lmfhdf -ldf -ljpeg -lz -lmfhdf -ldf -ljpeg -lz -lm"
            "linux2" : "-L"+cdat_location+"/lib  -ldrs -l"+" -l".join(cdat_info.cdunif_libraries)
+           "darwin" : "-L"+cdat_location+"/lib  -ldrs -l"+" -l".join(cdat_info.cdunif_libraries)
            }
-latsinc = {"irix6" : "-I"+cdat_location+"/include",
-           "sunos5" : "-I"+cdat_location+"/include",
-           "linux2" : "-I"+cdat_location+"/include"}
-latslib = {"irix6" : "-L"+cdat_location+"/lib -llats -lnetcdf -lm",
-           "sunos5" : "-L"+cdat_location+"/lib -llats -lnetcdf -lnsl -lm",
-           "linux2" : "-L"+cdat_location+"/lib -llats -lnetcdf -lm"}
+latsinc = {
+        #"irix6" : "-I"+cdat_location+"/include",
+           #"sunos5" : "-I"+cdat_location+"/include",
+           "linux2" : "-I"+cdat_location+"/include",
+           "darwin" : "-I"+cdat_location+"/include"}
+latslib = {
+        #"irix6" : "-L"+cdat_location+"/lib -llats -lnetcdf -lm",
+           #"sunos5" : "-L"+cdat_location+"/lib -llats -lnetcdf -lnsl -lm",
+           "linux2" : "-L"+cdat_location+"/lib -llats -lnetcdf -lm",
+           "darwin" : "-L"+cdat_location+"/lib -llats -lnetcdf -lm"}
 
-f77lib = { "linux2" : "-lgfortran"}
+f77lib = { "linux2" : "-lgfortran",
+            "darwin": "-lgfortran"}
 
-f77exec = {"irix6" : "f77",
-           "sunos5" : "f77",
-           "linux2" : "gfortran"}
+f77exec = {
+        #"irix6" : "f77",
+           #"sunos5" : "f77",
+           "linux2" : "gfortran",
+           "darwin" : "gfortran"}
 
 
 # Get the host type and major operating system version
 def getplatform():
-    uname = string.split(os.popen("uname -a",'r').readlines()[0])
-    ostype = uname[0]
-    osmajor = string.split(uname[2],".")[0]
-    return string.lower(ostype+osmajor)
+    return sys.platform
 
 def main(argv):
     ezget = 0
