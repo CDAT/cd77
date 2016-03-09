@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/lgm/uvcdat/2016-03-08/bin/python
 import sys
 import os
 import cdat_info
@@ -89,7 +89,7 @@ def main(argv):
 
     if verbose:
         print command
-    os.system(command)
-
-if __name__ == '__main__':
-    main(sys.argv)
+    ret = os.system(command)
+    return ret != 0
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))
