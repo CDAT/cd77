@@ -36,7 +36,7 @@ for l in cdat_info.cdunif_include_directories:
 # Locations of libraries and include files on the various platforms
 
 ezgetlib =  "-lezget"
-cdmslib = "-ldrs -l" + " -l".join(cdat_info.cdunif_libraries)
+cdmslib = "-ldrsfortran -l" + " -l".join(cdat_info.cdunif_libraries)
 latslib = "-llats -lnetcdf -lm"
 f77lib = "-lgfortran"
          
