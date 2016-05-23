@@ -37,7 +37,7 @@ for l in cdat_info.cdunif_include_directories:
 
 ezgetlib =  "-lezget"
 cdmslib = "-ldrsfortran -l" + " -l".join(cdat_info.cdunif_libraries)
-latslib = "-llats -lnetcdf -lm"
+latslib = "-llats -lnetcdf -lm -lhdf5 -lhdf5_hl -lz -ljpeg"
 f77lib = "-lgfortran"
          
 
