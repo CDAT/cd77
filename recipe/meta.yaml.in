@@ -12,14 +12,14 @@ build:
  
 requirements:
   build:
-    - python
+    - python {{ python }}
     - setuptools
   run:
     - libcdms
     - libdrs_f
     - ezget
     - lats
-    - python
+    - python {{ python }}
     - cdat_info
     - gcc_linux-64  # [linux]
     - gfortran_linux-64  # [linux]
