@@ -1,4 +1,5 @@
 #!/lgm/uvcdat/2016-03-08/bin/python
+from __future__ import print_function
 import sys
 import os
 import cdat_info
@@ -70,7 +71,7 @@ def main(argv):
 
     # Error if no options are set
     if not (ezget or cdms or lats):
-        print usage
+        print(usage)
         sys.exit(0)
 
     # Constructs the command line
@@ -88,7 +89,7 @@ def main(argv):
     command = command.replace(" -C ", " ")
 
     if verbose:
-        print command
+        print(command)
     ret = os.system(command)
     return ret != 0
 if __name__ == "__main__":
