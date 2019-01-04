@@ -1,0 +1,27 @@
+package:
+    name: cd77
+    version: 1.0.2
+
+source:
+    git_rev: @UVCDAT_BRANCH@
+    git_url: git://github.com/cdat/cd77.git
+
+build:
+  number: @BUILD_NUMBER@
+  noarch: python
+  script: python setup.py install
+ 
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - libcdms
+    - libdrs_f
+    - ezget
+    - lats
+    - python
+
+about:
+    home:  http://github.com/cdat/cd77
+
