@@ -1,6 +1,6 @@
 package:
     name: cd77
-    version: 1.0.2
+    version: 1.1
 
 source:
     git_rev: @UVCDAT_BRANCH@
@@ -21,6 +21,10 @@ requirements:
     - ezget
     - lats
     - python
+    - gcc_linux-64  # [linux]
+    - gfortran_linux-64  # [linux]
+    - clang_osx-64  # [osx]
+    - gfortran_osx-64  # [osx]
 
 about:
     home:  http://github.com/cdat/cd77

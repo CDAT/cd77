@@ -41,7 +41,7 @@ latslib = "-llats -lnetcdf -lm -lhdf5 -lhdf5_hl -lz -ljpeg"
 f77lib = "-lgfortran"
          
 
-f77exec = "gfortran"
+f77exec = os.environ.get("FC", "gfortran")
 
 
 def main(argv):
